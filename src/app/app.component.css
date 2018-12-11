@@ -31,7 +31,15 @@ main {
 
 .mat-nav-list {
   overflow: auto;
-  max-height: calc(100vh - 52px);
+  max-height: calc(100vh - 113px);
+}
+
+::ng-deep .mat-list-text {
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 85%;
 }
 
 .full-width {
@@ -41,4 +49,16 @@ main {
 .noDataMessage {
   padding: 30px;
   text-align: center;
+}
+
+button.floatButton {
+  position: absolute;
+  z-index: 1;
+  background: #ffffffb8;
+  height: 57px;
+}
+
+.mat-drawer {
+  max-width: 300px;
+  min-width: 300px
 }

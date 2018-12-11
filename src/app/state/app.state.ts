@@ -1,6 +1,6 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Place } from '../models/place.model';
-import { AddPlace, RemovePlace } from './../actions/app.actions';
+import { AddPlace, RemovePlace, ShowPopoup } from './../actions/app.actions';
 
 export class AppStateModel {
   places: Place[];
@@ -42,5 +42,23 @@ export class AppState {
         return a.id !== payload;
       }),
     });
+  }
+
+  /*
+   *
+   * Close all popups except selected
+   *
+   */
+  @Action(ShowPopoup)
+  showPopoup(
+    { getState, patchState }: StateContext<AppStateModel>,
+    { payload }: RemovePlace,
+  ) {
+    const state = getState();
+    state.places.map((a) => {
+      a.isOpen = a.id === payload;
+      return a;
+    });
+    patchState(state);
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 import { Select, Store } from '@ngxs/store';
-import { RemovePlace } from './actions/app.actions';
+import { RemovePlace, ShowPopoup } from './actions/app.actions';
 import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 import { AppState } from './state/app.state';
 
@@ -17,34 +17,44 @@ export class AppComponent {
   lat = 59.329483;
   lng = 18.068613;
   zoom = 11;
+  zoomIn = 13;
   query = '';
-  protected map: any;
+  mapLoaded = false;
+  opened: boolean;
+  map: any;
+  screenWidth: number;
 
-  constructor(private bottomSheet: MatBottomSheet, private store: Store) {}
+  constructor(private bottomSheet: MatBottomSheet, private store: Store) {
+    this.screenWidth = window.innerWidth;
+    window.onresize = () => {
+      // set screenWidth on screen size change
+      this.screenWidth = window.innerWidth;
+    };
+  }
 
-  protected mapReady(map) {
+  mapReady(map) {
+    this.mapLoaded = true;
     this.map = map;
   }
 
   mapClick(event) {
     const { coords } = event;
-    console.log(event);
-    console.log(coords);
     this.openBottomSheet(coords);
   }
+
   delete(place) {
     this.store.dispatch(new RemovePlace(place.id));
   }
-  focusOnPlace(place) {
+  focusOnPlace(place, sidenav) {
     const { coords } = place;
-    // this.lat = coords.lat;
-    // this.lng = coords.lng;
-    // this.zoom = 13;
-    console.log(this.map);
     if (this.map) {
-      console.log('clicked');
-      this.map.setZoom(13);
+      this.map.setZoom(this.zoomIn);
       this.map.setCenter({ lat: coords.lat, lng: coords.lng });
+      this.store.dispatch(new ShowPopoup(place.id));
+      // collapse side panel for mobile view
+      if (this.screenWidth < 840) {
+        sidenav.close();
+      }
     }
   }
 
