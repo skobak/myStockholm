@@ -1,4 +1,11 @@
 {
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier",
+    "tslint-config-airbnb",
+    "tslint-angular",
+    "rxjs-tslint-rules"
+  ],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
@@ -11,14 +18,11 @@
       "check-space"
     ],
     "curly": true,
-    "deprecation": {
-      "severity": "warn"
-    },
     "eofline": true,
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs/Rx"
+      "rxjs"
     ],
     "import-spacing": true,
     "indent": [
@@ -90,7 +94,8 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "always",
+      "ignore-bound-class-methods"
     ],
     "triple-equals": [
       true,
@@ -114,9 +119,21 @@
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type"
+      "check-type",
+      "check-module"
     ],
-    "no-output-on-prefix": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
@@ -125,6 +142,9 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-access-missing-member": true,
+    "templates-use-public": true,
+    "invoke-injectable": true
   }
 }
