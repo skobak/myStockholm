@@ -39,7 +39,7 @@ export class AppState {
   ) {
     patchState({
       places: getState().places.filter((a) => {
-        return a.name !== payload;
+        return a.id !== payload;
       }),
     });
   }

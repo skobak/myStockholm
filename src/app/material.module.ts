@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {
+  MatBottomSheetModule,
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
@@ -30,6 +31,7 @@ const module = [
   MatFormFieldModule,
   MatSlideToggleModule,
   MatSelectModule,
+  MatBottomSheetModule,
 ];
 @NgModule({
   imports: module,

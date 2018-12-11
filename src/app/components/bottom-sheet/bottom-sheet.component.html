@@ -1,0 +1,7 @@
+<div class='popup' fxLayout="row" fxLayout.xs='column' fxLayoutGap="20px" fxLayoutGap.xs="20px">
+  <mat-form-field fxFlex fxFlex.xs='100'>
+    <input matInput [(ngModel)]='name' placeholder="Place name" (keydown.enter)='addPlace()' (keydown.escape)='cancel()'>
+  </mat-form-field>
+  <button fxFlex='200px' fxFlex.xs='100' mat-raised-button color='accent' type='submit' (click)="addPlace()"> save
+  </button>
+</div>
