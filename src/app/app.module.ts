@@ -1,5 +1,6 @@
 import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
@@ -17,6 +18,7 @@ import { AppState } from './state/app.state';
     BrowserModule,
     FormsModule,
     MaterialModule,
+    FlexLayoutModule,
     NgxsModule.forRoot([AppState]),
     NgxsStoragePluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
