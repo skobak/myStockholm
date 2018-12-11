@@ -12,7 +12,7 @@ export const environment = {
   googleMapsKey: 'USE_YOUR_OWN_KEY',
 };
 ```
-
+Get an API key [here](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
