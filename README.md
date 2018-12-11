@@ -2,8 +2,9 @@
 
 Simple SPA application that uses Google Maps API, which lets the
 user save interesting places the user wants to visit in Stockholm. 
-
 Use NGXS as a state management 
+
+[*DEMO*](https://mystockholm.qrcards.org/)
 
 For correct work please set up your Goolge Maps Api key in environment.ts,environment.prod.ts
 ```
